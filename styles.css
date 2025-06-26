@@ -1,0 +1,49 @@
+/* Apply box-sizing to all elements so padding and borders don’t affect width/height */
+* {
+  box-sizing: border-box;
+}
+
+/* Set default body styles: no margin, sans-serif font, and light gray background */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #f5f6f7;
+}
+
+/* Style the header: center text, uppercase, padding, dark background with orange border */
+.header {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 32px;
+  background-color: #0a0a23;
+  color: #fff;
+  border-bottom: 4px solid #fdb347;
+}
+
+/* Set up the gallery as a flexbox container that wraps and centers its children */
+.gallery {
+  display: flex;
+  flex-direction: row;     /* Arrange images in rows */
+  flex-wrap: wrap;         /* Allow images to wrap to new lines */
+  justify-content: center; /* Center items horizontally */
+  align-items: center;     /* Align items vertically */
+  gap: 16px;               /* Space between images */
+  max-width: 1400px;       /* Limit overall gallery width */
+  margin: 0 auto;          /* Center the gallery container */
+  padding: 20px 10px;      /* Space inside the gallery */
+}
+
+/* Style each image inside the gallery */
+.gallery img {
+  width: 100%;             /* Responsive width */
+  max-width: 350px;        /* Limit how wide each image can be */
+  height: 300px;           /* Set consistent height */
+  object-fit: cover;       /* Crop images to fill the box without distortion */
+  border-radius: 10px;     /* Slightly rounded corners */
+}
+
+/* Use a pseudo-element to make sure the last row aligns properly */
+.gallery::after {
+  content: "";             /* Empty placeholder */
+  width: 350px;            /* Takes up space like an image */
+}
